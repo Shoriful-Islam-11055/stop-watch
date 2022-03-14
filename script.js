@@ -2,6 +2,8 @@ let hours = 0;
 let minute  = 0;
 let second = 0;
 let counter = 0;
+
+
 let timer = false;
 
 const start = () =>{
@@ -44,10 +46,31 @@ const stopWatch = () =>{
             second = 0;
         }
 
-        document.getElementById('counter').innerHTML = counter;
-        document.getElementById('second').innerHTML = second;
-        document.getElementById('minite').innerHTML = minute;
-        document.getElementById('hour').innerHTML = hours;
+        let Strhours = hours;
+        let Strminute = minute;
+        let Strsecond = second;
+        let Strcounter = counter;
+
+        if(counter <10){
+            Strcounter = "0"+ counter;
+        }
+
+        if(second <10){
+            Strsecond = "0"+ second;
+        }
+
+        if(minute <10){
+            Strminute = "0"+ minute;
+        }
+
+        if(hours <10){
+            Strhours = "0"+ hours;
+        }
+
+        document.getElementById('counter').innerHTML = Strcounter;
+        document.getElementById('second').innerHTML = Strsecond;
+        document.getElementById('minite').innerHTML = Strminute;
+        document.getElementById('hour').innerHTML = Strhours;
         setTimeout("stopWatch()", 10);
     } 
 }
